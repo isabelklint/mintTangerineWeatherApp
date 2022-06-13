@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rain or Shine</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/6a50e3be5d.js" crossorigin="anonymous"></script>
+    <!-- bootstrap grid -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- my css -->
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+			      <!-- my javascript-->
+						<script src="src/index.js"></script>
+	</head>
+  <!-- body -->
+  <body>
+    <!-- outer container-->
+    <div class="container-fluid">
+      <!-- city search and current location area-->
+      <!-- grid adapted from : https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_grid_ex6&stacked=h -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>what's the weather like in...</h1>
+          <form class="floater">
+            <input
+                          id="searchbar"
+                         type="text"
+              class="city_search_area"
+                          placeholder="enter city name"
+                   />
+            <button 
+              id="city_search_button">
+                          search
+                  </button>
+                  <button id="location_button">
+                          current location
+                </button>
+          </form>
+        </div>
+      </div>
+      <!-- temperature area-->
+      <div class="row temperature">
+          <div class="col-xs-12">
+              <div id="weather">
+                  <label class="switch">
+                      <input id="cf" type="checkbox" checked />
+                          <span
+                              class="slider round">
+                          </span>
+                          <span
+                              class="absolute-c"
+                          ></span>
+                          <span class="temps"><text id="fTemp">32˚f</text><text class="spacer">---  ---</text><text id="cTemp">0˚c</text></span>
+                  </label>
+              </div>
+
+
+            <div class="col-xs-12">
+              <h2 class="city_name" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: bolder;">
+                <i class="fa-solid fa-rainbow"></i>
+                <span id="cityName">
+                  CITY NAME</span>
+              </h2>
+            </div>
+          </div>
+           <div class="col-xs-12">
+                <span id="showTime"; style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: large; font-weight: bold;"></span>
+              </div>
+            <div class="col-xs-12">
+                <h2>
+                  precipitation 15%
+                </h2>
+              </div>
+            <div class="col-xs-12">
+                <h2>
+                  wind 6km per h
+                </h2>
+            <div class="col-xs-12">
+          </div>
+        </div>
+        <!-- five days weather area-->
+        <!-- tab content -->
+        <!-- tabs -->
+      <div class="five_days">
+        <div class="row">
+          <div class="col-xs-6 tab"><button class="tablinks">last five days</button>
+          </div>
+          <div class="col-xs-6 tab"><button class="tablinks">next five days</button>
+          </div>
+        </div>
+        <!-- tab contents-->
+        <div class="row">
+          <div class="col-xs-6"><div id="Last" class="tabcontent">
+            <p>
+                    <ul>
+                      <li>Wed  <i class='fa-solid fa-bolt'></i> 40˚c</li>
+                      <li>Thur <i class="fas fa-cloud-sun-rain"></i> 42˚c</li>
+                      <li>Fri  <i class="fa-solid fa-sun"></i> 45˚c</li>
+                      <li>Sat  <i class="fa-solid fa-cloud-sun-rain"></i> 44˚c</li>
+                      <li>Sun  <i class="fa-solid fa-sun"></i> 40˚c</li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div id="Next" class="tabcontent">
+                <p>
+                  <ul>
+                    <li>Tue  <i class="fa-solid fa-rainbow"></i> 40˚c</li>
+                    <li>Wed  <i class="fa-solid fa-sun"></i> 42˚c</li>
+                    <li>Thur <i class="fa-solid fa-rainbow"></i> 45˚c</li>
+                    <li>Fri  <i class="fa-solid fa-sun"></i> 44˚c</li>
+                    <li>Sat  <i class="fa-solid fa-rainbow"></i> 40˚c</li>
+                  </ul>
+              </p>
+          </div>
+        </div>
+      </div>
+      <!-- recent searches area-->
+      <div class="recent-searches-area">
+        <div class="row">
+            <div class="col-xs-12">
+              <h2 class="recent-searches-label">recent searches</h2>
+              <div class="row">
+              <div class="col-xs-6" id="parent">
+                <button class="recent-searches-button">Puebla</button>
+                </div>
+              <div class="col-xs-6" id="parent">
+                <button class="recent-searches-button">Weston-Super-Mare</button>
+                </div>
+              </div>
+            <div class="row">
+              <div class="col-xs-6" id="parent">
+                <button class="recent-searches-button")">Glendale</button>
+                </div>
+                <div class="col-xs-6" id="parent">
+                <button class="recent-searches-button")">Mexico City</button>
+                </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- this footer is fixed to the bottom of the page with code from this source: -->
+    <!-- https://stackoverflow.com/questions/46849823/how-to-fix-row-to-bottom-of-page-in-bootstrap -->
+    <footer>
+      <p>Coded by Isabel Klint for a SheCodes Plus assignment in html, css, and javascript, including google fonts and bootstrap.</p>
+      <p>Are you growing your tech social network? Add me on <a href="https://www.linkedin.com/in/isabel-klint/"><i class="fa fa-linkedin" aria-hidden="true" style="color:yellowgreen;"></i>.</a>
+</p>
+    </footer>
+	</body>
+</html>

@@ -1,0 +1,357 @@
+body {
+  display: block;
+  text-align: center;
+  font-family: "Amatic SC", cursive;
+  background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+  color: darkslategrey;
+}
+
+h1 {
+  display: inline-block;
+  margin: 0px, auto;
+  padding-top: 10px;
+  font-size: x-large;
+}
+
+h2 {
+  display: inline-block;
+  font-size: large;
+  width: 100%;
+}
+
+h3 {
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+}
+
+/*the box around the search area */
+form {
+  display: inline-block;
+  background-color: #f7797d;
+  border-color: #f7797d;
+  border: 1px solid #f7797d;
+  border-radius: 3px;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  display: inline-block;
+  background-color: #fbd786;
+  border: none;
+  color: #f7797d;
+  box-shadow: none;
+  font-size: x-large;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+}
+
+button:focus {
+  outline: none;
+}
+
+footer {
+  font-family: "Courier New", Courier, monospace;
+  font-size: smaller;
+  text-align: left;
+  background-color: black;
+  color: yellowgreen;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* the section where the last/next temps shows up */
+ul {
+  list-style-type: none;
+}
+
+.floater {
+  float: center;
+  margin: 0 0 0 3%;
+  padding: 0 2px 0 0;
+  font-size: x-large;
+}
+
+/* temperature area*/
+.temperature {
+  display: block;
+  text-align: center;
+  position: relative;
+  width: 75%;
+  margin: 50px auto;
+}
+
+/* toggle code from: */
+/* https://bootsnipp.com/snippets/Q0d6E */
+
+#weather {
+  display: block;
+  text-align: center;
+  /* margin: 10px auto;*/
+  font-size: 50px;
+  z-index: 2;
+}
+
+/* i am the underling colour/text */
+.switch {
+  position: relative;
+  background-color: #f7797d;
+  display: inline-block;
+  border-radius: 100px;
+  text-align: center;
+  line-height: 95px;
+  padding: 0 0 0 0;
+  /*width: 237px;*/
+  width: 260px;
+  height: 100px;
+}
+.switch input {
+  display: none;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+/* Rounded sliders */
+/* this is the label area on the left*/
+.slider.round {
+  border-radius: 100px;
+}
+
+/* before state */
+/* this is the 'c' button */
+/* this is the default state */
+.slider.round:before {
+  border-radius: 50%;
+}
+/*before clicking i am a labelled bar*/
+.slider:after {
+  position: absolute;
+  background-color: transparent;
+  z-index: 1;
+  /* transformation */
+  -webkit-transform: translateX(-160px);
+  -ms-transform: translateX(-160px);
+  transform: translateX(-160px);
+  transition: all 0.4s ease-in-out;
+}
+
+input:checked + .slider:after {
+  -webkit-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  transform: translateX(0px);
+  padding-left: 35px;
+}
+
+/*after clicking*/
+/* after clicking i am the f circle button*/
+.slider:before {
+  position: absolute;
+  z-index: 2;
+  content: "˚f";
+  color: #f7797d;
+  background-color: #fbd786;
+  text-align: center;
+  line-height: 95px;
+  font-size: 50px;
+  height: 95px;
+  width: 96px;
+  left: 2px;
+  bottom: 2px;
+  /* transition */
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+  -webkit-transition: 0.4s;
+  transition: all 0.4s ease-in-out;
+}
+/* transformation */
+input:checked + .slider:before {
+  content: "˚c";
+  -webkit-transform: translateX(160px);
+  -ms-transform: translateX(160px);
+  transform: translateX(160px);
+}
+/* i am the slider after clicking, i am the same colour as the switch*/
+/* i never change */
+
+cTemp {
+  font-size: 40px;
+  display: inline-block;
+  text-align: right;
+}
+
+fTemp {
+  font-size: 40px;
+  display: inline-block;
+}
+
+.spacer {
+  color: #f7797d;
+}
+.absolute-c {
+  position: absolute;
+  background-color: transparent;
+}
+
+/* end temperature area */
+.city_search_area {
+  margin: 3px;
+  line-height: 33px;
+}
+
+.city_name {
+  font-size: 30px;
+}
+
+.container {
+  display: block;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 50px;
+}
+
+/* tab code adapted from https://www.w3schools.com/howto/howto_js_tabs.asp */
+
+.five_days {
+  display: block;
+  margin: 0 auto;
+  padding: 5px 0 0 0;
+  background-color: none;
+  position: relative;
+  border-radius: 4px;
+  width: 70%;
+}
+
+.tab {
+  display: block;
+  margin: 0 auto;
+  padding: 5px 0 0 0;
+  overflow: hidden;
+  background-color: none;
+  position: relative;
+  width: 50%;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: #fbd786;
+  color: #f7797d;
+  border: none;
+  border: 1px solid #f7797d;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #f7797d;
+  color: #fbd786;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #f7797d;
+  color: #fbd786;
+}
+
+/* Style the tab container */
+.tab_container {
+  display: block;
+  height: 200px;
+  width: 80%;
+}
+
+/* Style the tab content */
+.tabcontent {
+  font-size: medium;
+  display: none;
+}
+
+/* Fading effect takes 1 second */
+.tabcontent {
+  animation: fadeEffect 1s;
+}
+
+/* Make a transition */
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* recent searches area */
+
+.recent-searches-area {
+  display: inline-block;
+  margin: 0px, auto;
+  width: 100%;
+}
+.recent-searches-label {
+  margin: 0 auto;
+  padding: 10px 0 0 15px;
+  font-size: x-large;
+}
+
+#recent-places {
+  z-index: 1;
+}
+
+#parent {
+  height: 45px;
+  position: relative;
+}
+
+#parent::after {
+  content: "";
+  width: 99%;
+  height: 97%;
+  background-color: #c6ffdd;
+  border-radius: 50px;
+  margin: 10px auto;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+}
+
+.recent-searches-button {
+  width: 99%;
+  height: 97%;
+  background-color: transparent;
+  color: darkslategray;
+  font-size: large;
+  border-radius: 50px;
+  margin: 10px auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* code from https://mdbootstrap.com/support/angular/how-can-i-locate-a-footer-at-the-bottom-of-the-page/ */
+.bottom_section {
+  display: block;
+  position: relative;
+  height: 50px;
+}
